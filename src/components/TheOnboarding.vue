@@ -19,26 +19,24 @@
 <template>
   <div id="onboarding" v-if="showOnboarding">
     <div>
-      <h1>A-Frame + Vite + Vue Boilerplate</h1>
-      <p v-if="!loaded">loading...</p>
-      <button v-if="loaded" @click="enterScene()">Enter scene</button>
+      <h1>Devenez forgeron !</h1>
+      <p v-if="!loaded">chargement...</p>
+      <button v-if="loaded" @click="enterScene()">Commencez l'expérience</button>
       <div class="licences">
         <section>
-          <h4>Movement modes support</h4>
-          <ul>
-            <li>
-              Desktop – Keyboard for move (WASD or Arrows keys) + Mouse for look
-              control (Drag and drop)
-            </li>
-            <li>
-              Mobile – 1x Finger touch to go forward + 2x Fingers touch to go
-              backward + Gaze cursor for click
-            </li>
-            <li>
-              VR/AR – walk + Teleport (Grip for grab and laser for
-              click) + Gaze cursor for click
-            </li>
-          </ul>
+            <ul>
+              <li>Le forgeron royal est absent et nous avons besoin que quelqu’un le remplace. Vous avez été choisi, pour forger les lames qui servirons à transpercer nos ennemis.</li>
+              <br>
+              <li>Voici comment forger une bonne lame :</li>
+              <br>
+                <ul>
+                  <li>Faites chauffer le lingot d’acier dans le four. Attention à ce qu’il ne soit pas trop chaud !</li>
+                  <li>Amener le lingot encore chaud sur l’enclume et frappez-le jusqu’à ce que sa forme soit convenable. Attention à ne pas trop le frapper !</li>
+                  <li>Lorsque la lame vous semble convenable, plongez-là dans le baril d’eau et cela mettra fin à votre tâche.</li>
+                </ul>
+                <br>
+              <li>Ne nous décevez pas !</li>
+            </ul>
         </section>
         <section>
           <h4>Source code</h4>
@@ -99,22 +97,44 @@
 </template>
 
 <style scoped>
-  h1 { font-size: 1.5rem }
-  a {
-    color: #eee;
-    text-decoration: none;
+  @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Metamorphous&display=swap');
+
+  h1 { 
+    font-size: 2.5rem;
+    font-family: 'MedievalSharp', cursive;
+    color: #c9a959;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
   }
+
+  a {
+    color: #c9a959;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #e6c788;
+  }
+
   .licences {
     margin: 2rem 0;
-    padding-bottom: 1rem;
+    padding: 2rem;
     font-size: 1rem;
     text-align: left;
+    font-family: 'Metamorphous', serif;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #8b7355;
+    border-radius: 8px;
   }
+
   .licences dt {
     padding-top: 0.75rem;
     font-size: 0.9rem;
     font-weight: bold;
+    color: #c9a959;
   }
+
   .licences dd {
     margin-left: 0;
     font-size: 0.8rem;
@@ -124,34 +144,77 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #333;
-    color: #ccc;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+    background-size: cover;
+    color: #d4c5a9;
     width: 100vw;
     height: 100vh;
     padding: 1rem;
-    font-family: monospace;
+    font-family: 'Metamorphous', serif;
     z-index: 10000;
     overflow: auto;
   }
+
   #onboarding > * {
     margin: 0 auto;
     max-width: 50rem;
     width: calc(100vw - 10rem);
     text-align: center;
-    border-radius: 0.3rem;
-    padding: 1rem;
-    font-size: 1.3rem;
+    padding: 2rem;
   }
+
   #onboarding button {
+    font-family: 'MedievalSharp', cursive;
     font-size: 1.3rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
-    background-color: white;
-    color: black;
-    border: none;
+    padding: 1rem 2rem;
+    background: #8b7355;
+    color: #f1e6d4;
+    border: 2px solid #c9a959;
+    border-radius: 0;
     cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
   }
-</style>#onboarding li {
+
+  #onboarding button:hover {
+    background: #c9a959;
+    color: #2c1810;
+    transform: scale(1.05);
+  }
+
+  #onboarding li {
+    font-size: 1.1rem;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #d4c5a9;
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5em;
+  }
+
+  #onboarding li::before {
+    content: "⚔️";
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  h4 {
+    font-family: 'MedievalSharp', cursive;
+    color: #c9a959;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+</style>
+
 #onboarding li {
   font-size: 1rem;
   text-align: left;

@@ -99,6 +99,8 @@ AFRAME.registerComponent('simple-grab', {
 
     // If something already grabbed, switch it
     const currentGrab = this.system.getCurrentGrab(this.grabbedBy);
+    if (currentGrab === this.el) return;
+
     if (currentGrab) {
       copyPosition(this.el, currentGrab);
       copyRotation(this.el, currentGrab);
