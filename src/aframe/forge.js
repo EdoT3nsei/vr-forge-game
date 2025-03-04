@@ -1,3 +1,5 @@
+import { quitGame } from "../utils/quitGame";
+
 AFRAME.registerComponent('forge', {
     schema: {
       event: {type: 'string', default: 'drop'}
@@ -75,14 +77,6 @@ AFRAME.registerComponent('forge', {
       this.ironBar.setAttribute('color', '#ff7b00');
       } else if (elapsedTime <= 15) {
       this.ironBar.setAttribute('color', '#ff4d00');
-      // const smoke = document.createElement('a-entity');
-      // smoke.setAttribute('gltf-model', '#smoke');
-      // smoke.setAttribute('id', 'smokeEffect');
-      // smoke.setAttribute('position', this.ironBar.getAttribute('position'));
-      // smoke.setAttribute('rotation', '0 0 -30');
-      // smoke.setAttribute('animation-mixer', 'clip: Default Take; loop: repeat');
-      // this.el.sceneEl.appendChild(smoke);
-      // console.log(smoke)
       } else if (elapsedTime <= 17) {
       this.ironBar.setAttribute('color', '#ff2a00');
       } else if (elapsedTime <= 19) {
@@ -95,10 +89,8 @@ AFRAME.registerComponent('forge', {
     destroyIronBar: function () {
       if (this.ironBar && this.ironBar.parentNode) {
         this.ironBar.parentNode.removeChild(this.ironBar);
-        // const smokeEffect = document.querySelector('#smokeEffect');
-        // console.log(smokeEffect);
-        // smokeEffect.setAttribute('scale', '0 0 0');
         console.log('Iron bar destroyed');
+        quitGame(7000, 2);
       }
     },
   

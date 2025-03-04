@@ -1,3 +1,5 @@
+import { quitGame } from "../utils/quitGame";
+
 AFRAME.registerComponent('water-barrel', {
   schema: {
     event: {type: 'string', default: 'drop'},
@@ -28,26 +30,18 @@ onDrop: function (evt) {
       smoke.setAttribute('scale', '1 1 1');
       smoke.setAttribute('animation-mixer', 'clip: Default Take; loop: repeat');
       this.el.sceneEl.appendChild(smoke);
-      for (const light of lights) {
-        //console.log(light);
-        light.setAttribute('animation', {
-            property: 'intensity',
-            to: 0.01,
-            dur: 3000,
-        });
+      if (droppedEl.getAttribute('material').color === '#d1cdcd') {
+        quitGame(7000, 4)
       }
-      setTimeout(() => {
-        this.exitImmersiveView();
-      }, 3000); // Adjusted to match the new fade duration
+      else {
+        if (droppedEl.getAttribute('scale').y <= -0.2) {
+          quitGame(7000, 5);
+        } else {
+          quitGame(7000, 1);
+        }
+      }
     }
 },
-
-exitImmersiveView: function () {
-    if (document.querySelector("a-scene").is("vr-mode")) {
-      document.querySelector("a-scene").exitVR();
-      console.info("Exit VR mode… bye!");
-    }
-  },
 
   remove: function () {
     this.el.removeEventListener(this.data.event, this.onDrop);

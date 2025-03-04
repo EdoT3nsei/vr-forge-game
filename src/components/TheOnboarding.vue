@@ -19,28 +19,28 @@
 <template>
   <div id="onboarding" v-if="showOnboarding">
     <div>
-      <h1>Devenez forgeron !</h1>
-      <p v-if="!loaded">chargement...</p>
-      <button v-if="loaded" @click="enterScene()">Commencez l'expérience</button>
+      <h1>Become a Blacksmith</h1>
+      <p v-if="!loaded">loading...</p>
+      <button v-if="loaded" @click="enterScene()">Start Experience</button>
       <div class="licences">
         <section>
             <ul>
-              <li>Le forgeron royal est absent et nous avons besoin que quelqu’un le remplace. Vous avez été choisi, pour forger les lames qui servirons à transpercer nos ennemis.</li>
+              <li>The royal blacksmith is absent and we need someone to replace him. You have been chosen to forge the blades that will pierce our enemies.</li>
               <br>
-              <li>Voici comment forger une bonne lame :</li>
+              <li>Here's how to forge a proper blade:</li>
               <br>
                 <ul>
-                  <li>Faites chauffer le lingot d’acier dans le four. Attention à ce qu’il ne soit pas trop chaud !</li>
-                  <li>Amener le lingot encore chaud sur l’enclume et frappez-le jusqu’à ce que sa forme soit convenable. Attention à ne pas trop le frapper !</li>
-                  <li>Lorsque la lame vous semble convenable, plongez-là dans le baril d’eau et cela mettra fin à votre tâche.</li>
+                  <li>1. Heat the steel ingot in the forge. Be careful not to make it too hot!</li>
+                  <li>2. Bring the hot ingot to the anvil and hammer it until its shape is suitable. Be careful not to hit it too much!</li>
+                  <li>3. When the blade seems right, plunge it into the water barrel and this will complete your task.</li>
                 </ul>
                 <br>
-              <li>Ne nous décevez pas !</li>
+              <li>Don't disappoint us!</li>
             </ul>
         </section>
         <section>
-          <h4>Source code</h4>
-          <blockquote><a href="https://github.com/Chabloz/a-frame-vite-vue-boilerplate">Github repo</a></blockquote>
+          <h4>Code source</h4>
+          <blockquote><a href="https://github.com/EdoT3nsei/vr-forge-game">Github repo</a></blockquote>
         </section>
         <dl>
           <dt>
@@ -75,20 +75,52 @@
           </dt><dd>
             By Ada Rose Cannon under MIT License
           </dd>
+          <dt>
+            <a href="https://sketchfab.com/3d-models/medieval-forge-game-ready-low-poly-f1a1067a73e9439d91bc139a75d2792a" target="_blank">Medieval Forge</a>
+          </dt>
+          <dd>by Sergi Trojanski on Sketchfab under CC License</dd>
 
           <dt>
-            <a href="https://sketchfab.com/3d-models/vr-gallery-1ac32ed62fdf424498acc146fad31f7e" target="_blank">VR Gallery</a>
-          </dt><dd>
-            by <a href="https://sketchfab.com/mvrc.art" target="_blank">Maxim Mavrichev</a>
-            under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
-          </dd>
+            <a href="https://sketchfab.com/3d-models/crate-the-mystery-of-stalore-9-a96cc257866c47ab93d52fa4dd598ae0" target="_blank">Wooden Crates</a>
+          </dt>
+          <dd>by Revilo on Sketchfab under CC License</dd>
 
           <dt>
-            <a href="https://sketchfab.com/3d-models/3d-gallery-for-vr-projects-68f77ed8558c4bd59e0a13e2cc9d1fd1" target="_blank">Physic room model</a>
-          </dt><dd>
-            by <a href="https://sketchfab.com/tekuto1s" target="_blank">tekuto1s</a>
-            under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+            <a href="https://sketchfab.com/kyan0s/collections/medieval-fantasy-contest-blacksmiths-workshop-a013c33e56a44b479cc527e2dc992b7f" target="_blank">Medieval Fantasy Workshop Assets</a>
+          </dt>
+          <dd>Collection by kyan0s on Sketchfab under CC License</dd>
+
+          <dt>
+            <a href="https://sketchfab.com/3d-models/lowpoly-parchment-e8339f1804774f9ea48651be9df94eda" target="_blank">Lowpoly Parchment</a>
+          </dt>
+          <dd>by lucasminer99 on Sketchfab under CC License</dd>
+
+          <dt>
+            <a href="https://sketchfab.com/3d-models/lantern-low-poly-ce5171d461fc48eebf6ad96878465a85" target="_blank">Lowpoly Lantern</a>
+          </dt>
+          <dd>by aetherowl on Sketchfab under CC License</dd>
+
+          <dt>
+            <a href="https://sketchfab.com/3d-models/smoke-d2dc6148098c48ea8c1b3bf1b70528c3" target="_blank">Smoke Effect</a>
+          </dt>
+          <dd>by Guillermo T on Sketchfab under CC License</dd>
+
+          <dt>
+            <a href="https://sketchfab.com/3d-models/minecraft-diamond-sword-2fd7a88f5bd44d728c2bbdd8dfc27f99" target="_blank">Diamond Sword</a>
+          </dt>
+          <dd>by Blender3D on Sketchfab under CC License</dd>
+
+          <dt>
+            <a href="https://poly.pizza/m/Im0kSO5tiJ" target="_blank">Stone Walkway</a>
+          </dt>
+          <dd>
+            by Pixel on Poly Pizza under CC Licence
           </dd>
+          <dt>
+            <a href="https://pixabay.com/sound-effects" target="_blank">Sound Effects</a>
+          </dt>
+          <dd>on Pixabay under CC License</dd>
+          
 
         </dl>
       </div>
@@ -195,13 +227,6 @@
     list-style-type: none;
     position: relative;
     padding-left: 1.5em;
-  }
-
-  #onboarding li::before {
-    content: "⚔️";
-    position: absolute;
-    left: 0;
-    top: 0;
   }
 
   h4 {

@@ -1,3 +1,4 @@
+//ancien test de component non-fonctionnel
 AFRAME.registerComponent('validate-drop', {
     schema: {
       validId: { type: 'string' }

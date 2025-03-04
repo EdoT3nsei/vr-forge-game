@@ -1,5 +1,6 @@
 <script setup>
   import { ref } from 'vue';
+  import { quitGame } from '../utils/quitGame.js';
 
   import TheCameraRig from './TheCameraRig.vue';
   import '../aframe/tesselation-square.js';
@@ -10,7 +11,6 @@
   import '../aframe/clickable.js';
   import '../aframe/forge.js';
   import '../aframe/outline.js';
-  import '../aframe/validate-drop.js';
   import '../aframe/water_barrel.js';
   import '../aframe/flicker-light.js';
 
@@ -22,10 +22,6 @@
   let hitCount = 0;
 
   const allAssetsLoaded = ref(false);
-
-  const collision = (event) => {
-    console.log('collision', event.detail);
-  }
 
   const hammerHitMetal = (event) => {
     hitCount++;
@@ -50,20 +46,30 @@
         z: currentScale.z * 1.001,
       };
       ironBar.setAttribute('scale', newScale);
+    } else if (ironBar.getAttribute('color') === '#2e0b04') {
+      ironBar.parentNode.removeChild(ironBar);
+      easterEgg();
     } else {
       console.log('The iron bar breaks');
       ironBar.parentNode.removeChild(ironBar);
+      quitGame(7000, 3);
     }
   }
 
-  const handleCollisionEnd = (event) => {
-    //console.log('Collision end', event.detail);
+  const easterEgg = () => {
+    const sword = document.createElement('a-entity');
+    sword.setAttribute('gltf-model', '#sword');
+    sword.setAttribute('position', '1.839 0.99 0.446');
+    sword.setAttribute('scale', '0.02 0.02 0.02');
+    sword.setAttribute('rotation', '0 -52.58 0');
+    document.querySelector('a-scene').appendChild(sword);
+    quitGame(7000, 1);
   }
+
 </script>
 
 <template>
   <a-scene
-    stats
     background="color: #AECCE4;"
     fog="type: linear; color: #86a3cf"
     outline
@@ -85,6 +91,7 @@
     <a-asset-item id="road" src="./assets/3d_assets/stone-road.glb"></a-asset-item>
     <a-asset-item id="house" src="./assets/3d_assets/house.glb"></a-asset-item>
     <a-asset-item id="house2" src="./assets/3d_assets/house_2.glb"></a-asset-item>
+    <a-asset-item id="sword" src="./assets/3d_assets/sword.glb"></a-asset-item>
   </a-assets>
 
   <template v-if="allAssetsLoaded">
@@ -174,7 +181,7 @@
       position="7.44 1.26 -1.38"
       scale="1.77 1.00 1.00"
     ></a-plane>
-
+  
     <a-plane
       id="window_blind"
       color="black"
@@ -294,7 +301,7 @@
     >
       <a-entity
         id="fire"
-        sound="src: url(./assets/sounds/fire.mp3); positional:flase; volume 2; autoplay: false"
+        sound="src: url(./assets/sounds/fire.mp3); positional:flase; volume 2; autoplay: true"
       ></a-entity>
     </a-box>
 
@@ -333,23 +340,23 @@
 
     <a-entity
       id="cling01"
-      sound="src: url(./assets/sounds/cling_01.mp3); positional:flase; volume 2; autoplay: false"
+      sound="src: url(./assets/sounds/cling_01.mp3); positional:false; volume 2; autoplay: false"
     ></a-entity>
     <a-entity
       id="cling02"
-      sound="src: url(./assets/sounds/cling_02.mp3); positional:flase; volume 2; autoplay: false"
+      sound="src: url(./assets/sounds/cling_02.mp3); positional:false; volume 2; autoplay: false"
     ></a-entity>
     <a-entity
       id="cling03"
-      sound="src: url(./assets/sounds/cling_03.mp3); positional:flase; volume 2; autoplay: false"
+      sound="src: url(./assets/sounds/cling_03.mp3); positional:false; volume 2; autoplay: false"
     ></a-entity>
     <a-entity
       id="cling04"
-      sound="src: url(./assets/sounds/cling_04.mp3); positional:flase; volume 2; autoplay: false"
+      sound="src: url(./assets/sounds/cling_04.mp3); positional:false; volume 2; autoplay: false"
     ></a-entity>
     <a-entity
       id="cling05"
-      sound="src: url(./assets/sounds/cling_05.mp3); positional:flase; volume 2; autoplay: false"
+      sound="src: url(./assets/sounds/cling_05.mp3); positional:false; volume 2; autoplay: false"
     ></a-entity>
 
     <a-light
