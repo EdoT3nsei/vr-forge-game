@@ -30,14 +30,6 @@ In this VR experience, you take on the role of a blacksmith tasked with forging 
 
 ## Quickstart
 
-### Create a folder for your project and move to it
-
-### Clone (or fork, or download)
-
-```sh
-git clone https://github.com/Chabloz/a-frame-vite-vue-boilerplate.git .
-```
-
 ### Install dependencies
 
 ```sh
