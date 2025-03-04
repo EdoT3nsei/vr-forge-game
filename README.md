@@ -24,11 +24,9 @@ In this VR experience, you take on the role of a blacksmith tasked with forging 
 2. Work the hot ingot on the anvil
    - Use the hammer to shape the metal
    - Be mindful not to strike too many times
-   - Pay attention to the metal's shape
 
 3. Complete the forging process
-   - Quench the blade in the water barrel when ready
-   - Timing and temperature are crucial
+   - Quench the blade in the water barrel when ready to end the game
 
 ## Quickstart
 
